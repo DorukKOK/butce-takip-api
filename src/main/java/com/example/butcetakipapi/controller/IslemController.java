@@ -1,5 +1,6 @@
 package com.example.butcetakipapi.controller;
 
+import jakarta.validation.Valid;
 import com.example.butcetakipapi.model.Islem;
 import com.example.butcetakipapi.service.IslemService;
 import org.springframework.web.bind.annotation.*;
@@ -14,10 +15,9 @@ public class IslemController {
     public IslemController(IslemService islemService) {
         this.islemService = islemService;
     }
-
     //Yeni işlem ekleme
     @PostMapping
-    public Islem ekle(@RequestBody Islem islem) {
+    public Islem ekle(@Valid @RequestBody Islem islem) {
         return islemService.ekle(islem);
     }
 
