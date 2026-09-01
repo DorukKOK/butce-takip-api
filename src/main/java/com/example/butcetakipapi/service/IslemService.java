@@ -3,6 +3,7 @@ package com.example.butcetakipapi.service;
 import com.example.butcetakipapi.model.Islem;
 import com.example.butcetakipapi.repository.IslemRepository;
 import org.springframework.stereotype.Service;
+import com.example.butcetakipapi.model.IslemTuru;
 
 import java.util.List;
 
@@ -28,5 +29,15 @@ public class IslemService {
     //İşlemi sil
     public void sil(Long id){
         islemRepository.deleteById(id);
+    }
+
+    public Double toplamGelir(){
+        return islemRepository.toplamTutar(IslemTuru.GELIR);
+    }
+    public Double toplamGider(){
+        return islemRepository.toplamTutar(IslemTuru.GIDER);
+    }
+    public Double bakiye(){
+        return toplamGelir() - toplamGider();
     }
 }
