@@ -11,4 +11,7 @@ public interface IslemRepository extends JpaRepository<Islem,Long> {
     //Coalesce ->> sonuç null ise 0 kullan.
     @Query("SELECT COALESCE(SUM(i.tutar), 0) FROM Islem i WHERE i.islemTuru = :tur")
     Double toplamTutar(@Param("tur") IslemTuru tur);
+
+    @Query("SELECT COALESCE(SUM(i.tutar), 0) FROM Islem i WHERE i.kategori.id = :kategoriId")
+    Double kategoriToplami(@Param("kategoriId") Long kategoriId);
 }

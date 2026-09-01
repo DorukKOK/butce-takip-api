@@ -40,4 +40,8 @@ public class IslemService {
     public Double bakiye(){
         return toplamGelir() - toplamGider();
     }
+    public Double kategoriToplami(Long kategoriId){
+        return islemRepository.kategoriToplami(kategoriId);
+    }
+
 }
