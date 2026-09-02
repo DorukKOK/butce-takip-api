@@ -1,6 +1,7 @@
 package com.example.butcetakipapi.service;
 
 import com.example.butcetakipapi.model.Islem;
+import com.example.butcetakipapi.model.KategoriOzetiDTO;
 import com.example.butcetakipapi.repository.IslemRepository;
 import org.springframework.stereotype.Service;
 import com.example.butcetakipapi.model.IslemTuru;
@@ -42,6 +43,10 @@ public class IslemService {
     }
     public Double kategoriToplami(Long kategoriId){
         return islemRepository.kategoriToplami(kategoriId);
+    }
+
+    public List<KategoriOzetiDTO> kategoriOzeti(){
+        return islemRepository.kategoriOzeti();
     }
 
 }
